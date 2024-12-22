@@ -1,0 +1,50 @@
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: website-nginx-conf
+  namespace: website
+data:
+  nginx.conf: |
+    user  nginx;
+    worker_processes  1;
+
+    error_log  /var/log/nginx/error.log warn;
+    pid        /var/run/nginx.pid;
+
+    events {
+      worker_connections  1024;
+    }
+
+    http {
+      server {
+        listen 80;
+        server_name localhost;
+
+        # Serve your main site or static files
+        location / {
+          root   /usr/share/nginx/html;
+          index  index.html;
+        }
+
+        # # /api -> website-backend
+        # location /api/ {
+        #   proxy_pass http://website-backend-service.website.svc.cluster.local:8080/api/;
+        # }
+
+        # # /dropit -> dropit-backend
+        # location /dropit/ {
+        #   proxy_pass http://dropit-backend-service.website.svc.cluster.local:8080/;
+        # }
+
+        # # /marketingbot -> marketing-bot-backend
+        # location /marketingbot/ {
+        #   proxy_pass http://marketing-bot-backend-service.website.svc.cluster.local:8080/;
+        # }
+
+        # # /landingpages -> landingpage-generator-backend
+        # location /landingpages/ {
+        #   proxy_pass http://landingpage-generator-backend-service.website.svc.cluster.local:8080/;
+        # }
+      }
+    }

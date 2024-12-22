@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: website-frontend-service
+  namespace: website
+  labels:
+    app: website-frontend
+spec:
+  selector:
+    app: website-frontend
+  type: ClusterIP    # For local dev; switch to 'ClusterIP' or 'LoadBalancer' as needed
+  ports:
+    - port: 80
+      targetPort: 80

@@ -1,0 +1,50 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: website-frontend
+  namespace: website
+  labels:
+    app: website-frontend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: website-frontend
+  template:
+    metadata:
+      labels:
+        app: website-frontend
+    spec:
+      containers:
+      - name: website-frontend
+        image: nginx:latest
+        ports:
+          - containerPort: 80
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+          requests:
+            memory: "64Mi"
+            cpu: "250m"
+        volumeMounts:
+          - name: website-content #Mount static files from 'website-files' into /usr/share/nginx/html
+            mountPath: /usr/share/nginx/html
+          - name: custom-nginx-conf #Mount the custom nginx.conf from 'website-nginx-conf' into /etc/nginx/nginx.conf
+            mountPath: /etc/nginx/nginx.conf
+            subPath: nginx.conf
+      volumes:
+        - name: website-content
+          configMap:
+            name: website-files
+            items:
+              - key: index.html
+                path: index.html
+              - key: main.js
+                path: main.js
+        - name: custom-nginx-conf
+          configMap:
+            name: website-nginx-conf
+            items:
+              - key: nginx.conf
+                path: nginx.conf
