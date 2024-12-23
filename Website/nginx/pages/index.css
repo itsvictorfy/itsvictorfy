@@ -41,8 +41,10 @@ section {
 
 /* Navbar Styles */
 .navbar {
-    position: sticky; /* Makes the navbar stick to the top of the page */
-    top: 0; /* Ensures it sticks to the top */
+    position: sticky;
+    /* Makes the navbar stick to the top of the page */
+    top: 0;
+    /* Ensures it sticks to the top */
     margin: 0 auto 100px;
     width: 35%;
     display: flex;
@@ -54,10 +56,14 @@ section {
     border-radius: 15px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
+
 .navbar.scrolled {
-    background-color: #222; /* Slightly darker background when scrolled */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Stronger shadow */
+    background-color: #222;
+    /* Slightly darker background when scrolled */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    /* Stronger shadow */
 }
+
 .navbar-logo {
     font-size: 1.5rem;
     font-weight: bold;
@@ -173,18 +179,6 @@ section {
 
 /* Hero Section */
 
-
-.social-icons {
-    display: flex;
-    gap: 1rem;
-    margin-top: 1rem;
-}
-
-.social-icons img {
-    width: 24px;
-    height: 24px;
-    cursor: pointer;
-}
 
 .mainimage img {
     width: 700px;
@@ -418,10 +412,10 @@ section {
     justify-content: center;
     align-items: center;
     gap: 20px;
-  }
-  
-  /* Individual Card */
-  .card {
+}
+
+/* Individual Card */
+.card {
     background-color: #1e1e1e;
     border: 1px solid #333333;
     border-radius: 10px;
@@ -430,37 +424,40 @@ section {
     text-align: center;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    text-decoration: none; /* Remove underline from links */
-    color: inherit; /* Inherit text color */
+    text-decoration: none;
+    /* Remove underline from links */
+    color: inherit;
+    /* Inherit text color */
     height: 12vw;
-  }
-  
-  .card:hover {
+}
+
+.card:hover {
     transform: translateY(-5px);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-  }
-  
-  /* Card Icon */
-  .icon {
+}
+
+/* Card Icon */
+.icon {
     font-size: 2.5rem;
     margin-bottom: 15px;
     color: #ffffff;
-  }
-  
-  /* Card Title */
-  .card h3 {
+}
+
+/* Card Title */
+.card h3 {
     font-size: 1.4rem;
     margin: 10px 0;
     color: #ffffff;
-  }
-  
-  /* Card Description */
-  .card p {
+}
+
+/* Card Description */
+.card p {
     font-size: 1.05rem;
     color: #aaaaaa;
     line-height: 1.4;
-  }
-  .section-title {
+}
+
+.section-title {
     padding-bottom: 100px;
     font-size: 5rem;
     font-weight: bold;
@@ -469,7 +466,46 @@ section {
     color: #c8ff2f;
     text-transform: uppercase;
     letter-spacing: 1px;
-  }
-  .projects-section {
+}
+
+.projects-section {
     padding: px 20px;
-  }
+}
+
+/* Social Media Row - Fixed to Bottom Left */
+.social-media-row {
+    position: fixed;
+    /* Makes it fixed on the screen */
+    bottom: 20px;
+    /* Distance from the bottom of the screen */
+    left: 20px;
+    /* Distance from the left of the screen */
+    display: flex;
+    flex-direction: column;
+    /* Stack icons vertically */
+    gap: 15px;
+    /* Space between icons */
+    z-index: 1000;
+    /* Keeps icons above other elements */
+}
+
+/* Individual Icons */
+.social-icon {
+    text-decoration: none;
+    /* Removes underline from links */
+}
+
+.social-icon img {
+    width: 40px;
+    /* Icon size */
+    height: 40px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    /* Hover effect */
+}
+
+.social-icon img:hover {
+    transform: scale(1.2);
+    /* Slight zoom on hover */
+    opacity: 0.8;
+    /* Slight fade on hover */
+}
