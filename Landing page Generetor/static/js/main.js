@@ -1,63 +1,56 @@
 document.addEventListener('DOMContentLoaded', function () {
-    const form = document.getElementById('generate-form');
     const modalTitle = document.getElementById('modal-title');
     const modalMessage = document.getElementById('modal-message');
     const resultLink = document.getElementById('result-link');
     const modalContainer = document.getElementById('modal-container');
     const closeModalBtn = document.getElementById('close-modal');
+    const testButton = document.getElementById('test-button');
+    const generateButton = document.getElementById('generate-button');
 
     // Ensure modal starts hidden
     modalContainer.classList.add('hidden');
 
-    form.addEventListener('submit', async function (event) {
-        event.preventDefault(); // Prevent default form submission
+    // Attach event listeners to both buttons with different endpoints
+    testButton.addEventListener('click', () => handleButtonClick('/test'));
+    generateButton.addEventListener('click', () => handleButtonClick('/generate'));
 
-        // Show the modal and set initial text
-        showModal("Generating your page...", "Connecting to server...");
+    async function handleButtonClick(endpoint) {
+        // Show the modal with an initial message
+        showModal("Processing your request...", "Connecting to server...");
 
-        const query = document.getElementById('text-box').value;
-        let intervalId;
+        const query = document.getElementById('text-box').value; // Get user input
+        // if (!query) {
+        //     modalMessage.textContent = "Please enter text in the box.";
+        //     return;
+        // }
+
         try {
-            // Start polling for progress
-            const pollProgress = async (id) => {
-                try {
-                    const progressRes = await fetch(`/progress/${id}`);
-                    if (progressRes.ok) {
-                        const progressText = await progressRes.text();
-                        modalMessage.textContent = progressText;
-                    }
-                } catch (err) {
-                    console.error("Error fetching progress:", err);
-                }
-            };
-
-            // Start the generation process
-            const startRes = await fetch('/generate', {
+            // Make the POST request to the specified endpoint
+            const response = await fetch(endpoint, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ query })
             });
 
-            if (!startRes.ok) throw new Error("Failed to start generation");
+            if (!response.ok) throw new Error(`Failed to process request at ${endpoint}`);
 
-            const startData = await startRes.json();
-            const { id, url, message } = startData;
-
-            // Stop polling when the generation is complete
-            clearInterval(intervalId);
+            const responseData = await response.json();
+            const { url, message } = responseData;
 
             // Update the modal with the result
-            modalTitle.textContent = message;
+            modalTitle.textContent = message || "Success!";
             modalMessage.textContent = "Your page is ready. Click below to view it:";
             resultLink.innerHTML = `<a href="${url}" target="_blank">${url}</a>`;
 
-        } catch (err) {
-            console.error(err);
-            modalMessage.textContent = "Failed to generate page. Please try again later.";
-        } finally {
-            clearInterval(intervalId); // Ensure polling stops
+        } catch (error) {
+            console.error(error);
+
+            // Show error message in the modal
+            modalTitle.textContent = "Error";
+            modalMessage.textContent = "Failed to process your request. Please try again later.";
+            resultLink.innerHTML = ""; // Clear any previous link
         }
-    });
+    }
 
     // Helper function to show the modal
     function showModal(title, msg) {
