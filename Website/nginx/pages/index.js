@@ -45,4 +45,11 @@ document.addEventListener("DOMContentLoaded", () => {
     fetchStats();
     setInterval(fetchStats, 30000);
   });
-  
+  document.addEventListener("scroll", () => {
+    const navbar = document.querySelector(".navbar");
+    if (window.scrollY > 10) {
+        navbar.classList.add("scrolled");
+    } else {
+        navbar.classList.remove("scrolled");
+    }
+});
