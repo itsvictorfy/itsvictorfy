@@ -55,6 +55,8 @@ section {
     padding: 0.5rem 2rem;
     border-radius: 15px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.8s ease, opacity 0.6s ease;
+
 }
 
 .navbar.scrolled {
@@ -69,7 +71,14 @@ section {
     font-weight: bold;
     color: white;
 }
-
+.navbar.hidden {
+    transform: translateY(-100%);
+    opacity: 0;
+}
+.navbar.visible {
+    transform: translateY(0);
+    opacity: 1;
+}
 .logo span,
 .navbar-menu li:hover,
 .navbar-menu li a:hover {

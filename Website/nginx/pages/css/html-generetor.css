@@ -1,0 +1,388 @@
+/* Reset and Basic Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #111;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center items horizontally */
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 100vh;
+    width: 100%;
+}
+
+
+
+/* Navbar Styling */
+.navbar {
+    width: 35%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #333;
+    /* Dark gray bar */
+    padding: 0.5rem 2rem;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    /* Adjusted margin-bottom for better spacing */
+    margin: 0 auto 20px auto; /* Center the navbar and add bottom margin */
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: white;
+}
+
+.logo span {
+    color: #fff700;
+    /* Highlighted triangle */
+}
+
+.menu {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+    margin: 0;
+    padding: 0;
+}
+
+.menu li {
+    color: white;
+    cursor: pointer;
+}
+
+.menu li:hover {
+    color: #fff700;
+    /* Highlight color on hover */
+}
+
+/* Remove default link styles and match the existing list item colors */
+.menu li a {
+    color: white;
+    /* Same as your list item color */
+    text-decoration: none;
+    /* Remove the underline */
+}
+
+/* Hover styling to match your existing hover effect */
+.menu li a:hover {
+    color: #fff700;
+    /* Same highlight color you have on hover */
+    text-decoration: none;
+    /* Keep underline off */
+}
+
+.actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.hire-me {
+    background-color: #c8ff2f;
+    /* Bright green */
+    color: #000;
+    border: none;
+    border-radius: 8px;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    font-weight: bold;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.hire-me:hover {
+    background-color: #a6e619;
+}
+
+.phone-icon {
+    font-size: 1.5rem;
+    color: white;
+    cursor: pointer;
+}
+
+/* Style the "Try it Yourself" heading */
+h1 {
+    color: #fff;
+    font-family: "Poppins", sans-serif;
+    /* matches your Google Fonts import */
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+/* Container around the textarea */
+#text-box-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%; /* Ensure it spans full width for alignment */
+    padding: 0; /* Remove unnecessary padding */
+    margin: 0; /* Remove any unnecessary margins */
+    height: auto; /* Let it adjust height based on the content */
+    flex-grow: 0; /* Prevent it from unnecessarily expanding */
+}
+
+
+/* Style the textarea */
+#text-box {
+    width: 50%; /* Restrict the width of the text box */
+    max-width: 600px; /* Optional: Limit the max width */
+    min-width: 300px; /* Optional: Set a minimum width */
+    padding: 1rem; /* Add padding for better appearance */   
+    min-height: 120px;
+    padding: 0.75rem;
+    font-size: 1rem;
+    border-radius: 6px;
+    border: 1px solid #333;
+    background-color: #222;
+    color: #fff;
+    resize: vertical;
+    /* allow user to resize vertically if needed */
+    font-family: "Poppins", sans-serif;
+}
+
+/* Highlight textarea on focus */
+#text-box:focus {
+    outline: none;
+    border-color: #fff700;
+    /* highlight color */
+    box-shadow: 0 0 4px rgba(255, 247, 0, 0.3);
+}
+
+/* Hide the modal by default */
+/* The semi-transparent background overlay */
+.modal-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+    /* DO NOT set display here */
+}
+
+/* Hide the modal by default */
+.hidden {
+    display: none;
+}
+
+/* Show the modal explicitly */
+.modal-container.show {
+    display: flex;
+    /* Only show when "show" class is applied */
+}
+
+/* The modal box itself */
+.modal {
+    background: #222;
+    border-radius: 8px;
+    padding: 2rem;
+    width: 50%;
+    height: 20%;
+    max-width: 100%;
+    text-align: center;
+}
+
+/* Modal headings and text */
+.modal h3 {
+    margin-bottom: 1rem;
+    color: #c8ff2f;
+    font-family: Arial, sans-serif;
+}
+
+.modal p {
+    color: #808080;
+    font-family: Arial, sans-serif;
+}
+
+/* This link or text for the final result can be styled or replaced by a link */
+#result-link a {
+    color: #007BFF;
+    text-decoration: none;
+}
+
+#result-link a:hover {
+    text-decoration: underline;
+}
+
+/* Close button */
+.close-btn {
+    background-color: #c8ff2f;
+    border: none;
+    border-radius: 6px;
+    padding: 0.6rem 1.2rem;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 3rem;
+    font-family: Arial, sans-serif;
+    color: #000;
+}
+
+.close-btn:hover {
+    background-color: #a6e619;
+}
+
+/* Add a loader spinner inside the modal */
+.loader {
+    border: 4px solid #f3f3f3;
+    /* Light gray */
+    border-top: 4px solid #c8ff2f;
+    /* Green accent */
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+    margin: 1rem auto;
+}
+
+/* Spinner Animation */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Center the buttons */
+.button-container {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1rem; /* Reduced the margin to bring buttons closer */
+}
+
+/* Style for both buttons */
+.custom-button {
+    background-color: #c8ff2f;
+    color: #000;
+    border: none;
+    border-radius: 6px;
+    padding: 0.6rem 1.2rem;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    font-family: "Poppins", sans-serif;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.2s ease;
+}
+
+/* Hover effect */
+.custom-button:hover {
+    background-color: #a6e619;
+}
+
+/* Footer Styles */
+.footer {
+    background-color: #141414;
+    color: #fff;
+    width: 100%;
+    padding: 15px 10px;
+    /* Further reduced padding */
+    margin-top: 20px;
+    /* Reduced margin from content above */
+    font-size: 0.7rem;
+    /* Smaller font size */
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 10px;
+    /* Reduced spacing between sections */
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-logo h2 {
+    font-size: 1rem;
+    /* Compact title size */
+    margin-bottom: 5px;
+    /* Reduced spacing */
+    color: #fff700;
+    /* Highlight color */
+}
+
+.footer-links h3,
+.footer-social h3 {
+    font-size: 0.9rem;
+    /* Smaller headings */
+    margin-bottom: 5px;
+    /* Reduced spacing */
+    color: #dcdcdc;
+}
+
+.footer-links ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links li {
+    margin: 3px 0;
+    /* Reduced spacing */
+}
+
+.footer-links li a {
+    text-decoration: none;
+    color: #808080;
+    transition: color 0.3s;
+}
+
+.footer p {
+    color: #808080;
+}
+
+.footer-links li a:hover {
+    color: #fff700;
+    /* Highlight color on hover */
+}
+
+.footer-social a {
+    margin-right: 10px;
+    /* Tighter spacing between icons */
+    display: inline-block;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.footer-social a:hover {
+    transform: scale(1.1);
+    /* Subtle hover zoom effect */
+    opacity: 0.8;
+}
+
+.footer-social img {
+    width: 20px;
+    /* Smaller icon size */
+    height: 20px;
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 10px;
+    /* Reduced margin */
+    border-top: 1px solid #444;
+    padding-top: 5px;
+    /* Smaller padding */
+    font-size: 0.6rem;
+    /* Compact font size */
+    color: #aaa;
+}

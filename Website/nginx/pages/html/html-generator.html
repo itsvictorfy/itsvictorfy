@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,700,0,0" />
+    <link rel="stylesheet" href="../static/css/html-generetor.css" />
+    <title>AI WebPage Creator</title>
+</head>
+
+<body>
+    <div class="wrapper">
+        <nav class="navbar">
+            <div class="logo">VFY<span>▲</span></div>
+            <ul class="menu">
+                <li><a href="#about">About</a></li>
+                <li><a href="#statistics">Live Statistics</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="https://www.github.com">Github</a></li>
+            </ul>
+            <div class="actions">
+                <button class="hire-me">Hire ME</button>
+                <div class="phone-icon">&#128222;</div>
+            </div>
+        </nav>
+        <h1>Try it Yourself</h1>
+        <div id="text-box-container">
+            <textarea id="text-box" placeholder="Try it Yourself..." name="query"></textarea>
+        </div>
+        <div class="button-container">
+            <button id="test-button" class="custom-button" onclick="sendRequest('/test-request')">Test Request</button>
+            <button id="generate-button" class="custom-button" onclick="sendRequest('/generate')">Generate</button>
+        </div>
+        <div id="modal-container" class="modal-container hidden">
+            <div class="modal">
+                <h3 id="modal-title">Generating your page...</h3>
+                <p id="modal-message">Please wait while your page is being created.</p>
+                <p id="result-link"></p>
+                <button id="close-modal" class="close-btn">Close</button>
+            </div>
+        </div>
+        <footer class="footer">
+            <div class="footer-container">
+                <div class="footer-logo">
+                    <h2>Victor Fun-Young</h2>
+                    <p>Devops Engineer</p>
+                    <p>Frontend and design Hater</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#about">About Me</a></li>
+                        <li><a href="#projects">Projects</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-social">
+                    <h3>Connect</h3>
+                    <a href="https://github.com/yourgithub" target="_blank"><img
+                            src="https://img.icons8.com/ios-filled/30/ffffff/github.png" alt="GitHub"></a>
+                    <a href="https://www.linkedin.com/in/yourlinkedin" target="_blank"><img
+                            src="https://img.icons8.com/ios-filled/30/ffffff/linkedin.png" alt="LinkedIn"></a>
+                    <a href="mailto:your-email@example.com"><img src="https://img.icons8.com/ios-filled/30/ffffff/email.png"
+                            alt="Email"></a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2024 Victor Fun-Young. All Rights Reserved.</p>
+            </div>
+        </footer>
+    </div>
+    <script src="../js/html-generetor.js"></script>
+</body>
+
+</html>
