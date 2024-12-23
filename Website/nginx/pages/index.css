@@ -343,11 +343,12 @@ section {
 
 
 
-.vkporjectglobal{
+.vkporjectglobal {
     display: flex;
     flex-direction: row;
     gap: 50px;
 }
+
 .vkporject {
     background-color: rgb(31, 31, 31);
     width: 50%;
@@ -359,45 +360,98 @@ section {
     align-content: center;
     justify-content: center;
     align-items: center;
-    margin:30px 0;
-    transition:0.3s;
+    margin: 30px 0;
+    transition: 0.3s;
 }
+
 .vkporject:hover {
     background-color: rgb(59, 59, 59);
 
 }
 
-.vkporject h2{
-  margin:20px 0;
-        font-weight: 700;
-        color: #dcdcdc;
-        font-size: 70px;
-    
-}
-
-.vkporject p{
-font-size: 32px;;
-        padding: 0;
-        margin:20px 0;
-        color: #808080;
-        line-height: 1
-            /* background: linear-gradient(0deg, #1a1a1a 0%, #212121 100%); */
-            /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); */;
-    
-}
-
-.vkporject button{
-    margin-top:10px;
-width:70%;
-font-size: 22px;
-font-weight: 700;
-padding:20px;
-color:black;
-background-color: #c8ff2f;
-border-radius: 20px;
+.vkporject h2 {
+    margin: 20px 0;
+    font-weight: 700;
+    color: #dcdcdc;
+    font-size: 70px;
 
 }
 
-.divider{
-    height:200px;
+.vkporject p {
+    font-size: 32px;
+    ;
+    padding: 0;
+    margin: 20px 0;
+    color: #808080;
+    line-height: 1
+        /* background: linear-gradient(0deg, #1a1a1a 0%, #212121 100%); */
+        /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); */
+    ;
+
 }
+
+.vkporject button {
+    margin-top: 10px;
+    width: 70%;
+    font-size: 22px;
+    font-weight: 700;
+    padding: 20px;
+    color: black;
+    background-color: #c8ff2f;
+    border-radius: 20px;
+
+}
+
+.divider {
+    height: 200px;
+}
+
+
+/* Cards Container */
+.cards-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+  }
+  
+  /* Individual Card */
+  .card {
+    background-color: #1e1e1e;
+    border: 1px solid #333333;
+    border-radius: 10px;
+    padding: 20px;
+    width: 24vh;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-decoration: none; /* Remove underline from links */
+    color: inherit; /* Inherit text color */
+    height: 12vw;
+  }
+  
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  }
+  
+  /* Card Icon */
+  .icon {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    color: #ffffff;
+  }
+  
+  /* Card Title */
+  .card h3 {
+    font-size: 1.4rem;
+    margin: 10px 0;
+    color: #ffffff;
+  }
+  
+  /* Card Description */
+  .card p {
+    font-size: 1.05rem;
+    color: #aaaaaa;
+    line-height: 1.4;
+  }
