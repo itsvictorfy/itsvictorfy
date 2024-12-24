@@ -3,6 +3,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    border-color: red;
 }
 
 html, body {
@@ -25,8 +26,6 @@ body {
     min-height: 100vh;
     width: 100%;
 }
-
-
 
 /* Navbar Styling */
 .navbar {
@@ -118,10 +117,10 @@ body {
 
 /* Style the "Try it Yourself" heading */
 h1 {
-    color: #fff;
+    color: #dcdcdc;
     font-family: "Poppins", sans-serif;
     /* matches your Google Fonts import */
-    font-size: 2rem;
+    font-size: 5rem;
     text-align: center;
     margin-bottom: 1rem;
 }
@@ -155,6 +154,7 @@ h1 {
     resize: vertical;
     /* allow user to resize vertically if needed */
     font-family: "Poppins", sans-serif;
+    height: 200px;
 }
 
 /* Highlight textarea on focus */
@@ -385,4 +385,41 @@ h1 {
     font-size: 0.6rem;
     /* Compact font size */
     color: #aaa;
+}
+/* Social Media Row - Fixed to Bottom Left */
+.social-media-row {
+    position: fixed;
+    /* Makes it fixed on the screen */
+    bottom: 20px;
+    /* Distance from the bottom of the screen */
+    left: 20px;
+    /* Distance from the left of the screen */
+    display: flex;
+    flex-direction: column;
+    /* Stack icons vertically */
+    gap: 15px;
+    /* Space between icons */
+    z-index: 1000;
+    /* Keeps icons above other elements */
+}
+
+/* Individual Icons */
+.social-icon {
+    text-decoration: none;
+    /* Removes underline from links */
+}
+
+.social-icon img {
+    width: 40px;
+    /* Icon size */
+    height: 40px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    /* Hover effect */
+}
+
+.social-icon img:hover {
+    transform: scale(1.2);
+    /* Slight zoom on hover */
+    opacity: 0.8;
+    /* Slight fade on hover */
 }

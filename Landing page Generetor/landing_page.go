@@ -11,6 +11,7 @@ type LandingPage struct {
 	HTML    string                         `json:"html"`
 	ID      string                         `json:"id"`
 	History []openai.ChatCompletionMessage `json:"history"`
+	Status  string                         `json:"status"`
 }
 type LandingPageStore struct {
 	pages map[string]LandingPage

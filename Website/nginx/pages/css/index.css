@@ -525,9 +525,12 @@ section {
     background-color: #141414;
     color: #fff;
     width: 100%;
-    padding: 15px 10px; /* Further reduced padding */
-    margin-top: 20px; /* Reduced margin from content above */
-    font-size: 0.7rem; /* Smaller font size */
+    padding: 15px 10px;
+    /* Further reduced padding */
+    margin-top: 20px;
+    /* Reduced margin from content above */
+    font-size: 0.7rem;
+    /* Smaller font size */
 }
 
 .footer-container {
@@ -535,21 +538,27 @@ section {
     justify-content: space-between;
     align-items: flex-start;
     flex-wrap: wrap;
-    gap: 10px; /* Reduced spacing between sections */
+    gap: 10px;
+    /* Reduced spacing between sections */
     max-width: 1200px;
     margin: 0 auto;
 }
 
 .footer-logo h2 {
-    font-size: 1rem; /* Compact title size */
-    margin-bottom: 5px; /* Reduced spacing */
-    color: #fff700; /* Highlight color */
+    font-size: 1rem;
+    /* Compact title size */
+    margin-bottom: 5px;
+    /* Reduced spacing */
+    color: #fff700;
+    /* Highlight color */
 }
 
 .footer-links h3,
 .footer-social h3 {
-    font-size: 0.9rem; /* Smaller headings */
-    margin-bottom: 5px; /* Reduced spacing */
+    font-size: 0.9rem;
+    /* Smaller headings */
+    margin-bottom: 5px;
+    /* Reduced spacing */
     color: #dcdcdc;
 }
 
@@ -559,7 +568,8 @@ section {
 }
 
 .footer-links li {
-    margin: 3px 0; /* Reduced spacing */
+    margin: 3px 0;
+    /* Reduced spacing */
 }
 
 .footer-links li a {
@@ -567,34 +577,43 @@ section {
     color: #808080;
     transition: color 0.3s;
 }
+
 .footer p {
     color: #808080;
 }
+
 .footer-links li a:hover {
-    color: #fff700; /* Highlight color on hover */
+    color: #fff700;
+    /* Highlight color on hover */
 }
 
 .footer-social a {
-    margin-right: 10px; /* Tighter spacing between icons */
+    margin-right: 10px;
+    /* Tighter spacing between icons */
     display: inline-block;
     transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
 .footer-social a:hover {
-    transform: scale(1.1); /* Subtle hover zoom effect */
+    transform: scale(1.1);
+    /* Subtle hover zoom effect */
     opacity: 0.8;
 }
 
 .footer-social img {
-    width: 20px; /* Smaller icon size */
+    width: 20px;
+    /* Smaller icon size */
     height: 20px;
 }
 
 .footer-bottom {
     text-align: center;
-    margin-top: 10px; /* Reduced margin */
+    margin-top: 10px;
+    /* Reduced margin */
     border-top: 1px solid #444;
-    padding-top: 5px; /* Smaller padding */
-    font-size: 0.6rem; /* Compact font size */
+    padding-top: 5px;
+    /* Smaller padding */
+    font-size: 0.6rem;
+    /* Compact font size */
     color: #aaa;
 }

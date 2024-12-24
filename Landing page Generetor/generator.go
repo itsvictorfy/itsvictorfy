@@ -27,15 +27,24 @@ func generateLandingPage(c *gin.Context) {
 			ID:      id,
 			HTML:    "",
 			History: InitChatGptHistory(prompt), // Assume `prompt` is globally available
+			Status:  "Initializing",             // Set initial status
 		}
+		pageStorageMu.Add(page)
 	}
+
+	page.Status = "Waiting for ChatGPT"
+	pageStorageMu.Add(page)
+
 	page.HTML, page.History, err = chatGptClient.SendChatGptRequestWithHistory(input, page.History)
 	if err != nil {
+		page.Status = "Error: Failed to generate content from ChatGPT"
+		pageStorageMu.Add(page)
 		slog.Error(fmt.Sprintf("Error generating content from ChatGPT: %s", err))
 		c.JSON(http.StatusInternalServerError, gin.H{"error": "Failed to generate content from ChatGPT"})
 		return
 	}
 
+	page.Status = "Deploying Page"
 	pageStorageMu.Add(page)
 
 	c.JSON(http.StatusOK, gin.H{
@@ -43,6 +52,8 @@ func generateLandingPage(c *gin.Context) {
 		"url":     generateUrl(c) + page.ID,
 	})
 
+	page.Status = "Completed"
+	pageStorageMu.Add(page)
 }
 
 func testGeneratedPageWithTestPage(c *gin.Context) {
@@ -87,4 +98,16 @@ func generateUrl(c *gin.Context) string {
 	}
 	fullURL := fmt.Sprintf("%s://%s/pages/", scheme, c.Request.Host)
 	return fullURL
+}
+
+func progressEndpoint(c *gin.Context) {
+	id := c.Param("id")
+
+	page, exists := pageStorageMu.Get(id)
+	if !exists {
+		c.JSON(http.StatusNotFound, gin.H{"error": "Page not found"})
+		return
+	}
+
+	c.JSON(http.StatusOK, gin.H{"status": page.Status})
 }
