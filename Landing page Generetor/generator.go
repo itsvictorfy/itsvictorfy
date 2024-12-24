@@ -8,11 +8,23 @@ import (
 
 	"github.com/gin-gonic/gin"
 	"github.com/google/uuid"
+	"github.com/itsvictorfy/pkg/chatgpt"
 )
 
 // Function to generate a landing page
 func generateLandingPage(c *gin.Context) {
-	input := c.PostForm("query")
+	var requestData struct {
+		Query string `json:"query"`
+	}
+
+	// Parse JSON body
+	if err := c.ShouldBindJSON(&requestData); err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{"error": "Invalid JSON"})
+		return
+	}
+
+	input := requestData.Query
+	slog.Info(fmt.Sprintf("Received request to generate landing page input- %s", input))
 
 	id, err := c.Cookie("victor-website-landingpage-sessionID")
 	if err != nil {
@@ -26,8 +38,8 @@ func generateLandingPage(c *gin.Context) {
 		page = LandingPage{
 			ID:      id,
 			HTML:    "",
-			History: InitChatGptHistory(prompt), // Assume `prompt` is globally available
-			Status:  "Initializing",             // Set initial status
+			History: chatgpt.InitChatGptHistory(prompt), // Assume `prompt` is globally available
+			Status:  "Initializing",                     // Set initial status
 		}
 		pageStorageMu.Add(page)
 	}
@@ -69,7 +81,7 @@ func testGeneratedPageWithTestPage(c *gin.Context) {
 		page = LandingPage{
 			ID:      id,
 			HTML:    "",
-			History: InitChatGptHistory(prompt), // Assume `prompt` is globally available
+			History: chatgpt.InitChatGptHistory(prompt), // Assume `prompt` is globally available
 		}
 	}
 	htmlFilePath := "./templates/html-generetor-test.html"

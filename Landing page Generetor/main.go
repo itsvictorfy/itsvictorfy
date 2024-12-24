@@ -1,30 +1,42 @@
 package main
 
 import (
+	"fmt"
 	"log/slog"
 	"net/http"
 	"os"
 
 	"github.com/gin-gonic/gin"
 	"github.com/google/uuid"
+	"github.com/itsvictorfy/pkg/chatgpt"
 	"github.com/joho/godotenv"
 )
 
 var (
-	chatGptClient *ChatGPTClient
+	chatGptClient *chatgpt.ChatGPTClient
 	prompt        string                  // prompt for ChatGPT
 	pageStorageMu = NewLandingPageStore() // Mutex for thread-safe access to pageStorage
 )
 
 func init() {
 	godotenv.Load()
-	chatGptClient = InitChatGptClient(os.Getenv("OPENAI_API_KEY"))
+	chatGptClient, _ = chatgpt.InitClient(os.Getenv("OPENAI_API_KEY"))
 	// promptfilepath := "./ptompt.txt"
 	// bytePrompt, err := os.ReadFile(promptfilepath)
 	// if err != nil {
 	// 	slog.Error(fmt.Sprintf("Failed to load prompt file path: %s, errpr: %s", promptfilepath, err))
 	// }
 	prompt = "You Are a Landing Page Builder, You Recieve a Prompt and return a HTML CSS Code, Your Response sould be start with <html> and end with </html> Within these tags you do all the HTML and CSS needed"
+}
+func getIDFromCookies(c *gin.Context) string {
+	id, err := c.Cookie("victor-website-landingpage-sessionID")
+	if err != nil {
+		id = uuid.New().String()
+		c.SetCookie("victor-website-landingpage-sessionID", id, 3600, "/", "localhost", false, false)
+	} else {
+		slog.Info(fmt.Sprintf("ID Found in Cookies, ID: %s", id))
+	}
+	return id
 }
 
 func main() {
@@ -34,9 +46,7 @@ func main() {
 
 	if os.Getenv("HOMEPAGE") != "false" {
 		router.GET("/", func(c *gin.Context) {
-			id := uuid.New().String()
-			c.SetCookie("victor-website-landingpage-sessionID", id, 3600, "/", "localhost", false, false)
-			slog.Info("victor-website-landingpage-sessionID: %s", slog.String("ID", id))
+			getIDFromCookies(c)
 			c.HTML(http.StatusOK, "html-generator.html", nil)
 		})
 	}
