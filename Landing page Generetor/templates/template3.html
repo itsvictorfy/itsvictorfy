@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BorderBuddy Template</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="hero-content">
+            <h1>IMPORTING AND EXPORTING IS HARD</h1>
+            <p>We do the hard part for you. Grab a free online quote now.</p>
+            <div class="hero-buttons">
+                <button class="cta-button">IMPORT A VEHICLE</button>
+                <button class="cta-button">IMPORT ANY ITEM</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Who Are We Section -->
+    <section class="who-we-are">
+        <div class="content">
+            <h2>WHO ARE WE</h2>
+            <p>Border Buddy is a customs broker providing online solutions for anyone fed up with being buried in duty and tariff paperwork. We simplify the cross-border retail experience with online solutions for both web-based businesses and shoppers.</p>
+        </div>
+        <div class="image-container">
+            <img src="car-image.jpg" alt="Classic Car">
+        </div>
+    </section>
+
+    <!-- Why Do I Need a Customs Broker Section -->
+    <section class="why-customs-broker">
+        <h2>WHY DO I NEED A CUSTOMS BROKER?</h2>
+        <p>Customs brokers help complete the paperwork to move your goods from one country to another. The broker walks you through the paperwork required at customs and ensures it is all filed before you get to the border, making your trip faster and easier.</p>
+    </section>
+
+    <!-- Form Section -->
+    <section class="duty-calls">
+        <h2>Duty Calls</h2>
+        <p>When duty calls, talk to your buddy. We’re ready with the answers you need to speed up and simplify the customs process.</p>
+        <form class="custom-form">
+            <label for="name">Name *</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email *</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone">
+
+            <label for="message">Ask our experts *</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+
+            <button type="submit" class="submit-button">SUBMIT</button>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>© 2024 BorderBuddy. All rights reserved.</p>
+    </footer>
+</body>
+
+</html>
+<style>
+    /* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background-color: #f87d28;
+    color: white;
+    line-height: 1.6;
+    text-align: center;
+    overflow-x: hidden;
+}
+
+/* Hero Section */
+.hero {
+    padding: 100px 20px;
+    background-color: #f87d28;
+    text-align: center;
+}
+
+.hero-content h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.hero-content p {
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+}
+
+.hero-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.cta-button {
+    background-color: white;
+    color: #f87d28;
+    padding: 15px 30px;
+    font-size: 1rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.cta-button:hover {
+    background-color: #ffd1a8;
+}
+
+/* Who Are We Section */
+.who-we-are {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 50px 20px;
+    flex-wrap: wrap;
+}
+
+.content {
+    max-width: 500px;
+    text-align: left;
+}
+
+.content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.image-container img {
+    max-width: 400px;
+    border-radius: 10px;
+}
+
+/* Why Customs Broker Section */
+.why-customs-broker {
+    padding: 50px 20px;
+    background-color: #f9a259;
+    color: white;
+}
+
+.why-customs-broker h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+/* Duty Calls Section */
+.duty-calls {
+    padding: 50px 20px;
+    background-color: #f87d28;
+    text-align: center;
+    border-radius: 20px;
+    margin: 20px;
+    color: white;
+}
+
+.duty-calls h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.custom-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: white;
+    padding: 30px;
+    border-radius: 15px;
+    color: #333;
+}
+
+.custom-form label {
+    font-size: 1.2rem;
+    align-self: flex-start;
+}
+
+.custom-form input,
+.custom-form textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+.custom-form .submit-button {
+    background-color: #f87d28;
+    color: white;
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.custom-form .submit-button:hover {
+    background-color: #d96a1b;
+}
+
+/* Footer */
+.footer {
+    padding: 20px;
+    background-color: #d96a1b;
+    color: white;
+}
+
+</style>

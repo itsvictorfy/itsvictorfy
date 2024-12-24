@@ -13,8 +13,10 @@ import (
 
 // Function to generate a landing page
 func generateLandingPage(c *gin.Context) {
+
 	var requestData struct {
-		Query string `json:"query"`
+		Query      string `json:"query"`
+		TemplateID string `json:"templateId"`
 	}
 
 	// Parse JSON body
@@ -22,9 +24,13 @@ func generateLandingPage(c *gin.Context) {
 		c.JSON(http.StatusBadRequest, gin.H{"error": "Invalid JSON"})
 		return
 	}
-
-	input := requestData.Query
-	slog.Info(fmt.Sprintf("Received request to generate landing page input- %s", input))
+	query := requestData.Query
+	templateID := requestData.TemplateID
+	if query == "" || templateID == "" {
+		c.JSON(http.StatusBadRequest, gin.H{"error": "Query and TemplateID are required"})
+		return
+	}
+	slog.Info(fmt.Sprintf("Received request to generate landing page input- %s template id = %s", query, templateID))
 
 	id, err := c.Cookie("victor-website-landingpage-sessionID")
 	if err != nil {
@@ -38,8 +44,8 @@ func generateLandingPage(c *gin.Context) {
 		page = LandingPage{
 			ID:      id,
 			HTML:    "",
-			History: chatgpt.InitChatGptHistory(prompt), // Assume `prompt` is globally available
-			Status:  "Initializing",                     // Set initial status
+			History: chatgpt.InitChatGptHistory(prompt + templateMap[templateID]), // Assume `prompt` is globally available
+			Status:  "Initializing",                                               // Set initial status
 		}
 		pageStorageMu.Add(page)
 	}
@@ -47,7 +53,7 @@ func generateLandingPage(c *gin.Context) {
 	page.Status = "Waiting for ChatGPT"
 	pageStorageMu.Add(page)
 
-	page.HTML, page.History, err = chatGptClient.SendChatGptRequestWithHistory(input, page.History)
+	page.HTML, page.History, err = chatGptClient.SendChatGptRequestWithHistory(query, page.History)
 	if err != nil {
 		page.Status = "Error: Failed to generate content from ChatGPT"
 		pageStorageMu.Add(page)

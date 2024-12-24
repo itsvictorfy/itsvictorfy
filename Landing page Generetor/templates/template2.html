@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Distribution Landing Page</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Distribute your music worldwide</h1>
+            <p>Get your music on Spotify, Apple Music, Amazon, and more.</p>
+            <button class="primary-button">Sign up for a Free Account</button>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="feature">
+            <h3>Your music everywhere</h3>
+            <p>Distribute your music to over 150 platforms for one simple price.</p>
+        </div>
+        <div class="feature">
+            <h3>Collect all your royalties</h3>
+            <p>Earn revenue from streams, downloads, and YouTube Content ID.</p>
+        </div>
+        <div class="feature">
+            <h3>Monetize on social media</h3>
+            <p>Earn from platforms like TikTok, Instagram, and more.</p>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing">
+        <h2>Pricing</h2>
+        <div class="pricing-tiers">
+            <div class="tier">
+                <h3>Make a Single</h3>
+                <p>$9.95</p>
+                <p>Distribute your single to 150+ platforms.</p>
+            </div>
+            <div class="tier">
+                <h3>Release an Album</h3>
+                <p>$29.95</p>
+                <p>Distribute an album and collect global royalties.</p>
+            </div>
+            <div class="tier">
+                <h3>Pro Album</h3>
+                <p>$69</p>
+                <p>Get global royalties and extra publishing options.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <h2>What Artists Say</h2>
+        <div class="testimonial">
+            <p>"CD Baby helps me distribute my music globally. Highly recommend!"</p>
+            <span>- Walk Off The Earth</span>
+        </div>
+        <div class="testimonial">
+            <p>"Their customer service is the best in the industry!"</p>
+            <span>- The Magic Lantern</span>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="footer-content">
+            <p>© 2024 Music Distribution. All rights reserved.</p>
+            <button class="primary-button">Sign up for a Free Account</button>
+        </div>
+    </footer>
+</body>
+
+</html>
+
+<style>
+    /* General Reset */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Arial', sans-serif;
+    }
+
+    body {
+        line-height: 1.6;
+        color: #333;
+        background-color: #f9f9f9;
+    }
+
+    /* Hero Section */
+    .hero {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 100px 20px;
+        background: linear-gradient(to bottom, #4b1e4d, #301030);
+        color: white;
+        text-align: center;
+    }
+
+    .hero-content h1 {
+        font-size: 3rem;
+        margin-bottom: 30px;
+    }
+
+    .hero-content p {
+        font-size: 1.5rem;
+        margin-bottom: 30px;
+    }
+
+    .primary-button {
+        background: #f15a24;
+        color: white;
+        padding: 15px 30px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 1.2rem;
+        font-weight: bold;
+        transition: background 0.3s;
+    }
+
+    .primary-button:hover {
+        background: #d94d1d;
+    }
+
+    /* Features Section */
+    .features {
+        display: flex;
+        justify-content: space-around;
+        gap: 50px;
+        padding: 100px 20px;
+        background: #f8f8f8;
+    }
+
+    .feature {
+        max-width: 300px;
+        text-align: center;
+    }
+
+    .feature h3 {
+        font-size: 1.8rem;
+        margin-bottom: 20px;
+    }
+
+    .feature p {
+        font-size: 1.2rem;
+    }
+
+    /* Pricing Section */
+    .pricing {
+        text-align: center;
+        padding: 100px 20px;
+        background: #fff;
+    }
+
+    .pricing h2 {
+        font-size: 2.5rem;
+        margin-bottom: 30px;
+    }
+
+    .pricing-tiers {
+        display: flex;
+        justify-content: center;
+        gap: 50px;
+        /* Increased spacing between cards */
+    }
+
+    .tier {
+        background-color: #ffffff;
+        border-radius: 20px;
+        box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.1);
+        padding: 50px;
+        /* Increased padding for larger cards */
+        max-width: 350px;
+        /* Increased card width */
+        text-align: center;
+        transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .tier:hover {
+        transform: translateY(-15px);
+        box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.2);
+    }
+
+    .tier h3 {
+        font-size: 2rem;
+        /* Larger heading */
+        color: #333;
+        margin-bottom: 20px;
+    }
+
+    .tier p {
+        font-size: 1.2rem;
+        margin-bottom: 15px;
+    }
+
+    /* Testimonials Section */
+    .testimonials {
+        text-align: center;
+        padding: 100px 20px;
+        background: #f8f8f8;
+    }
+
+    .testimonials h2 {
+        font-size: 2.5rem;
+        margin-bottom: 30px;
+    }
+
+    .testimonial {
+        margin-bottom: 30px;
+        font-style: italic;
+        font-size: 1.2rem;
+    }
+
+    /* Footer Section */
+    footer {
+        padding: 50px 20px;
+        background: #301030;
+        color: white;
+        text-align: center;
+    }
+
+    footer .primary-button {
+        margin-top: 30px;
+        background: #f15a24;
+        padding: 15px 30px;
+        font-size: 1.2rem;
+    }
+</style>

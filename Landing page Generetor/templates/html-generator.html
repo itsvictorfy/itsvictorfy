@@ -32,6 +32,15 @@
         <div id="text-box-container">
             <textarea id="text-box" placeholder="Try it Yourself..." name="query"></textarea>
         </div>
+        <div id="template-selection">
+            <h2 style="color: #dcdcdc;">Select a Template</h2>
+            <div class="template-container">
+                <img src="img/template1.png" class="template" data-template-id="template1" onclick="selectTemplate(this)" />
+                <img src="img/template2.png" class="template" data-template-id="template2" onclick="selectTemplate(this)" />
+                <img src="img/template3.png" class="template" data-template-id="template3" onclick="selectTemplate(this)" />
+                <img src="img/template4.png" class="template" data-template-id="template4" onclick="selectTemplate(this)" />
+            </div>
+        </div>        
         <div class="button-container">
             <button id="test-button" class="custom-button" onclick="sendRequest('/test-request')">Test Request</button>
             <button id="generate-button" class="custom-button" onclick="sendRequest('/generate')">Generate</button>

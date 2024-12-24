@@ -418,8 +418,35 @@ h1 {
 }
 
 .social-icon img:hover {
-    transform: scale(1.2);
+    transform: scale(1);
     /* Slight zoom on hover */
     opacity: 0.8;
     /* Slight fade on hover */
+}
+#template-selection {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.template-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.template {
+    width: 300px;
+    height: auto;
+    border: 2px solid transparent;
+    cursor: pointer;
+    transition: transform 0.3s, border-color 0.3s;
+}
+
+.template:hover {
+    transform: scale(1.1);
+}
+
+.template.selected {
+    border-color: #c8ff2f;
 }

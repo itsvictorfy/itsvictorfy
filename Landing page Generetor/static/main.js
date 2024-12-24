@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const closeModalBtn = document.getElementById('close-modal');
     const testButton = document.getElementById('test-button');
     const generateButton = document.getElementById('generate-button');
+    let selectedTemplateId = null; // Track the selected template
 
     // Ensure modal starts hidden
     modalContainer.classList.add('hidden');
@@ -14,22 +15,31 @@ document.addEventListener('DOMContentLoaded', function () {
     testButton.addEventListener('click', () => handleButtonClick('/test'));
     generateButton.addEventListener('click', () => handleButtonClick('/generate'));
 
+    // Add event listener to template selection
+    document.querySelectorAll('.template').forEach(template => {
+        template.addEventListener('click', function () {
+            selectTemplate(this);
+        });
+    });
+
     async function handleButtonClick(endpoint) {
         // Show the modal with an initial message
         showModal("Processing your request...", "Connecting to server...");
 
         const query = document.getElementById('text-box').value; // Get user input
-        // if (!query) {
-        //     modalMessage.textContent = "Please enter text in the box.";
-        //     return;
-        // }
+
+        // Validate that both query and template are provided
+        if (!query || !selectedTemplateId) {
+            modalMessage.textContent = "Please enter text and select a template.";
+            return;
+        }
 
         try {
             // Make the POST request to the specified endpoint
             const response = await fetch(endpoint, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ query })
+                body: JSON.stringify({ query, templateId: selectedTemplateId }) // Include templateId
             });
 
             if (!response.ok) throw new Error(`Failed to process request at ${endpoint}`);
@@ -50,6 +60,19 @@ document.addEventListener('DOMContentLoaded', function () {
             modalMessage.textContent = "Failed to process your request. Please try again later.";
             resultLink.innerHTML = ""; // Clear any previous link
         }
+    }
+
+    function selectTemplate(templateElement) {
+        // Remove "selected" class from all templates
+        document.querySelectorAll('.template').forEach(template => {
+            template.classList.remove('selected');
+        });
+
+        // Add "selected" class to the clicked template
+        templateElement.classList.add('selected');
+
+        // Store the selected template ID
+        selectedTemplateId = templateElement.getAttribute('data-template-id');
     }
 
     // Helper function to show the modal
